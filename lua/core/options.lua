@@ -1,6 +1,7 @@
 local global = require("core.global")
 
 local function load_options()
+	local indent, width = 2, 80
 	local global_local = {
 		termguicolors = true,
 		errorbells = true,
@@ -60,7 +61,7 @@ local function load_options()
 		foldlevelstart = 99,
 		ruler = true,
 		cursorline = true,
-		cursorcolumn = true,
+		-- cursorcolumn = true,
 		list = true,
 		showtabline = 2,
 		winwidth = 30,
@@ -75,7 +76,7 @@ local function load_options()
 		laststatus = 2,
 		display = "lastline",
 		showbreak = "↳  ",
-		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+		listchars = "tab:→ ,trail:•,extends:#,nbsp:.",
 		-- pumblend = 10,
 		-- winblend = 10,
 		autoread = true,
@@ -86,9 +87,9 @@ local function load_options()
 		formatoptions = "1jcroql",
 		expandtab = true,
 		autoindent = true,
-		tabstop = 4,
-		shiftwidth = 4,
-		softtabstop = 4,
+		tabstop = indent,
+		shiftwidth = indent,
+		softtabstop = indent,
 		breakindentopt = "shift:2,min:20",
 		wrap = false,
 		linebreak = true,

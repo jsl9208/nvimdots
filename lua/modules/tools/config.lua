@@ -5,7 +5,7 @@ function config.telescope()
 	vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
 	vim.api.nvim_command([[packadd telescope-project.nvim]])
 	vim.api.nvim_command([[packadd telescope-frecency.nvim]])
-	vim.api.nvim_command([[packadd telescope-zoxide]])
+	-- vim.api.nvim_command([[packadd telescope-zoxide]])
 
 	local telescope_actions = require("telescope.actions.set")
 	local fixfolds = {
@@ -20,37 +20,46 @@ function config.telescope()
 		end,
 	}
 
+	local actions = require("telescope.actions")
+
 	require("telescope").setup({
 		defaults = {
-			initial_mode = "insert",
-			prompt_prefix = "  ",
-			selection_caret = " ",
-			entry_prefix = " ",
-			scroll_strategy = "limit",
-			results_title = false,
-			borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-			layout_strategy = "horizontal",
-			path_display = { "absolute" },
+			-- initial_mode = "insert",
+			-- prompt_prefix = "  ",
+			-- selection_caret = " ",
+			-- entry_prefix = " ",
+			-- scroll_strategy = "limit",
+			-- results_title = false,
+			-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+			-- layout_strategy = "horizontal",
+			-- path_display = { "absolute" },
 			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
-			layout_config = {
-				prompt_position = "bottom",
-				horizontal = {
-					preview_width = 0.5,
+			-- layout_config = {
+			-- 	prompt_position = "bottom",
+			-- 	horizontal = {
+			-- 		preview_width = 0.5,
+			-- 	},
+			-- },
+			-- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+			-- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+			-- qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			-- file_sorter = require("telescope.sorters").get_fuzzy_file,
+			-- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+			mappings = {
+				i = {
+					["<esc>"] = actions.close,
+					["<c-j>"] = actions.move_selection_next,
+					["<c-k>"] = actions.move_selection_previous,
 				},
 			},
-			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			file_sorter = require("telescope.sorters").get_fuzzy_file,
-			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		},
 		extensions = {
-			fzf = {
-				fuzzy = false,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
-			},
+			-- fzf = {
+			-- 	fuzzy = true,
+			-- 	override_generic_sorter = true,
+			-- 	override_file_sorter = true,
+			-- 	case_mode = "smart_case",
+			-- },
 			frecency = {
 				show_scores = true,
 				show_unindexed = true,
@@ -69,7 +78,7 @@ function config.telescope()
 
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("project")
-	require("telescope").load_extension("zoxide")
+	-- require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
 end
 
@@ -106,7 +115,7 @@ function config.trouble()
 		},
 		indent_lines = true, -- add an indent guide below the fold icons
 		auto_open = false, -- automatically open the list when you have diagnostics
-		auto_close = false, -- automatically close the list when you have no diagnostics
+		auto_close = true, -- automatically close the list when you have no diagnostics
 		auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
 		auto_fold = false, -- automatically fold a file trouble list at creation
 		signs = {

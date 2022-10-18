@@ -1,15 +1,17 @@
 local editor = {}
 local conf = require("modules.editor.config")
 
-editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
+-- editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
 editor["RRethy/vim-illuminate"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.illuminate,
 }
-editor["terrortylor/nvim-comment"] = {
+editor["numToStr/Comment.nvim"] = {
 	opt = false,
-	config = conf.nvim_comment,
+	config = function()
+		require("Comment").setup()
+	end,
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	opt = true,
@@ -54,11 +56,11 @@ editor["phaazon/hop.nvim"] = {
 	event = "BufReadPost",
 	config = conf.hop,
 }
-editor["karb94/neoscroll.nvim"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.neoscroll,
-}
+-- editor["karb94/neoscroll.nvim"] = {
+-- 	opt = true,
+-- 	event = "BufReadPost",
+-- 	config = conf.neoscroll,
+-- }
 editor["akinsho/toggleterm.nvim"] = {
 	opt = true,
 	event = "UIEnter",
@@ -105,11 +107,11 @@ editor["famiu/bufdelete.nvim"] = {
 	opt = true,
 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 }
-editor["edluffy/specs.nvim"] = {
-	opt = true,
-	event = "CursorMoved",
-	config = conf.specs,
-}
+-- editor["edluffy/specs.nvim"] = {
+-- 	opt = true,
+-- 	event = "CursorMoved",
+-- 	config = conf.specs,
+-- }
 editor["abecodes/tabout.nvim"] = {
 	opt = true,
 	event = "InsertEnter",
@@ -124,6 +126,9 @@ editor["sindrets/diffview.nvim"] = {
 editor["luukvbaal/stabilize.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
+	config = function()
+		require("stabilize").setup()
+	end,
 }
 
 -- only for fcitx5 user who uses non-English language during coding

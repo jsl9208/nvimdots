@@ -26,7 +26,7 @@ tools["nvim-telescope/telescope-frecency.nvim"] = {
 	after = "telescope-project.nvim",
 	requires = { { "kkharji/sqlite.lua", opt = true } },
 }
-tools["jvgrootveld/telescope-zoxide"] = { opt = true, after = "telescope-frecency.nvim" }
+-- tools["jvgrootveld/telescope-zoxide"] = { opt = true, after = "telescope-frecency.nvim" }
 tools["michaelb/sniprun"] = {
 	opt = true,
 	run = "bash ./install.sh",

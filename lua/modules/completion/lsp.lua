@@ -17,6 +17,7 @@ mason_lsp.setup({
 		"clangd",
 		"gopls",
 		"pyright",
+		"typescript-language-server",
 	},
 })
 
@@ -267,10 +268,10 @@ efmls.setup({
 	cpp = { formatter = clangfmt },
 	python = { formatter = black },
 	vue = { formatter = prettier },
-	typescript = { formatter = prettier, linter = eslint },
-	javascript = { formatter = prettier, linter = eslint },
-	typescriptreact = { formatter = prettier, linter = eslint },
-	javascriptreact = { formatter = prettier, linter = eslint },
+	typescript = { formatter = prettier },
+	javascript = { formatter = prettier },
+	typescriptreact = { formatter = prettier },
+	javascriptreact = { formatter = prettier },
 	yaml = { formatter = prettier },
 	html = { formatter = prettier },
 	css = { formatter = prettier },

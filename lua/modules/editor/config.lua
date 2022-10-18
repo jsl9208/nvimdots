@@ -8,14 +8,14 @@ function config.nvim_treesitter()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
-			"c",
-			"cpp",
+			-- "c",
+			-- "cpp",
 			"lua",
 			"go",
 			"gomod",
 			"json",
 			"yaml",
-			"latex",
+			-- "latex",
 			"make",
 			"python",
 			"rust",

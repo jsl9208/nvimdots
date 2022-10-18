@@ -20,6 +20,7 @@ ui["hoob3rt/lualine.nvim"] = {
 }
 ui["goolord/alpha-nvim"] = {
 	opt = true,
+	-- requires = { "BlakeJC94/alpha-nvim-fortune" },
 	event = "BufWinEnter",
 	config = conf.alpha,
 }
