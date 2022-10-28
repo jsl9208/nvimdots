@@ -4,6 +4,10 @@ function config.rust_tools()
 	vim.api.nvim_command([[packadd nvim-lspconfig]])
 	vim.api.nvim_command([[packadd lsp_signature.nvim]])
 
+	local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
+	local codelldb_path = extension_path .. "adapter/codelldb"
+	local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+
 	local opts = {
 		tools = { -- rust-tools options
 
@@ -174,12 +178,15 @@ function config.rust_tools()
 		}, -- rust-analyer options
 
 		-- debugging stuff
+		-- dap = {
+		-- 	adapter = {
+		-- 		type = "executable",
+		-- 		command = "lldb-vscode",
+		-- 		name = "rt_lldb",
+		-- 	},
+		-- },
 		dap = {
-			adapter = {
-				type = "executable",
-				command = "lldb-vscode",
-				name = "rt_lldb",
-			},
+			adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
 		},
 	}
 
@@ -200,3 +207,4 @@ end
 -- end
 
 return config
+

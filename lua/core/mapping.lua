@@ -56,6 +56,8 @@ local def_map = {
 	["v|K"] = map_cmd(":m '<-2<cr>gv=gv"),
 	["v|<"] = map_cmd("<gv"),
 	["v|>"] = map_cmd(">gv"),
+	-- Term
+	["t|jk"] = map_cu([[<c-\><c-n>]]):with_noremap(),
 }
 
 bind.nvim_load_mapping(def_map)
