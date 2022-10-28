@@ -8,12 +8,14 @@ local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
+require("lspconfig.ui.windows").default_options.border = "single"
+
 mason.setup()
 mason_lsp.setup({
 	ensure_installed = {
-		"bash-language-server",
+		"bashls",
 		"efm",
-		"lua-language-server",
+		"sumneko_lua",
 		"clangd",
 		"gopls",
 		"pyright",
@@ -22,7 +24,7 @@ mason_lsp.setup({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local function custom_attach(client, bufnr)
 	require("lsp_signature").on_attach({
@@ -240,7 +242,7 @@ local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
 
 local black = require("efmls-configs.formatters.black")
-local luafmt = require("efmls-configs.formatters.stylua")
+local stylua = require("efmls-configs.formatters.stylua")
 local prettier = require("efmls-configs.formatters.prettier")
 local shfmt = require("efmls-configs.formatters.shfmt")
 
@@ -263,7 +265,7 @@ flake8 = vim.tbl_extend("force", flake8, {
 
 efmls.setup({
 	vim = { formatter = vint },
-	lua = { formatter = luafmt },
+	lua = { formatter = stylua },
 	c = { formatter = clangfmt },
 	cpp = { formatter = clangfmt },
 	python = { formatter = black },
