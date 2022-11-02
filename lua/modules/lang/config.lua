@@ -1,12 +1,14 @@
 local config = {}
 
 function config.rust_tools()
+	local rt = require("rust-tools")
+
 	vim.api.nvim_command([[packadd nvim-lspconfig]])
 	vim.api.nvim_command([[packadd lsp_signature.nvim]])
 
-	local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
+	local extension_path = "/Users/jsl/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/"
 	local codelldb_path = extension_path .. "adapter/codelldb"
-	local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+	local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 	local opts = {
 		tools = { -- rust-tools options
@@ -174,7 +176,13 @@ function config.rust_tools()
 		server = {
 			-- standalone file support
 			-- setting it to false may improve startup time
-			standalone = true,
+			-- standalone = true,
+			on_attach = function(_, bufnr)
+				-- Hover actions
+				vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+				-- Code action groups
+				vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+			end,
 		}, -- rust-analyer options
 
 		-- debugging stuff
@@ -207,4 +215,3 @@ end
 -- end
 
 return config
-

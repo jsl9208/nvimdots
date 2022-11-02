@@ -76,11 +76,12 @@ local plug_map = {
 	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
 	["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
-	["n|<c-p>"] = map_cu(
-			"lua require('telescope').extensions.frecency.frecency{ sorter = require('telescope.config').values.file_sorter() }"
-		)
-		:with_noremap()
-		:with_silent(),
+	-- ["n|<c-p>"] = map_cu(
+	-- 		"lua require('telescope').extensions.frecency.frecency{ sorter = require('telescope.config').values.file_sorter() }"
+	-- 	)
+	-- 	:with_noremap()
+	-- 	:with_silent(),
+	["n|<c-p>"] = map_cu("lua require('telescope.builtin').oldfiles({only_cwd = true})"):with_noremap():with_silent(),
 	["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
 	-- ["n|<Leader>sc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
