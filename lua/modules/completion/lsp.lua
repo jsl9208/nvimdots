@@ -274,7 +274,7 @@ efmls.setup({
 	javascript = { formatter = prettier },
 	typescriptreact = { formatter = prettier },
 	javascriptreact = { formatter = prettier },
-	yaml = { formatter = prettier },
+	-- yaml = { formatter = prettier },
 	html = { formatter = prettier },
 	css = { formatter = prettier },
 	scss = { formatter = prettier },

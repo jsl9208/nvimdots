@@ -112,7 +112,7 @@ local function load_options()
 		vim.g.python3_host_prog = conda_prefix .. "/bin/python"
 	elseif global.is_mac then
 		vim.g.python_host_prog = "/usr/bin/python"
-		vim.g.python3_host_prog = "/usr/local/bin/python3"
+		vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 	else
 		vim.g.python_host_prog = "/usr/bin/python"
 		vim.g.python3_host_prog = "/usr/bin/python3"
