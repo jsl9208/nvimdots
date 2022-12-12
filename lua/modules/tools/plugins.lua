@@ -20,13 +20,25 @@ tools["nvim-telescope/telescope-fzf-native.nvim"] = {
 tools["nvim-telescope/telescope-project.nvim"] = {
 	opt = true,
 	after = "telescope-fzf-native.nvim",
+	requires = { {
+		"ahmedkhalf/project.nvim",
+		opt = true,
+		config = conf.project,
+	} },
 }
 tools["nvim-telescope/telescope-frecency.nvim"] = {
 	opt = true,
 	after = "telescope-project.nvim",
 	requires = { { "kkharji/sqlite.lua", opt = true } },
 }
--- tools["jvgrootveld/telescope-zoxide"] = { opt = true, after = "telescope-frecency.nvim" }
+-- tools["jvgrootveld/telescope-zoxide"] = {
+-- 	opt = true,
+-- 	after = "telescope-frecency.nvim",
+-- }
+tools["nvim-telescope/telescope-live-grep-args.nvim"] = {
+	opt = true,
+	after = "telescope-frecency.nvim",
+}
 tools["michaelb/sniprun"] = {
 	opt = true,
 	run = "bash ./install.sh",

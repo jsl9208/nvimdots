@@ -5,6 +5,8 @@ local map_cmd = bind.map_cmd
 require("keymap.config")
 
 local plug_map = {
+	-- bufdelete.nvim
+	["n|<A-q>"] = map_cmd(":Bwipeout<CR>"),
 	-- Bufferline
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
 	["n|<A-j>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
@@ -33,7 +35,7 @@ local plug_map = {
 	["n|<A-t>"] = map_cr("LSoutlineToggle"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
-	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
+	["n|gs"] = map_cr("lua vim.lsp.buf.signature_help()"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["n|L"] = map_cr("Lspsaga show_line_diagnostics"):with_noremap():with_silent(),
@@ -93,8 +95,8 @@ local plug_map = {
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin vim-eft
-	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
+	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
 	-- Plugin Hop
 	["n|<leader>w"] = map_cu("HopWord"):with_noremap(),
 	["n|<leader>j"] = map_cu("HopLine"):with_noremap(),
