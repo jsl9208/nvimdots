@@ -34,6 +34,13 @@ function config.telescope()
 			layout_strategy = "horizontal",
 			-- path_display = { "absolute" },
 			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
+			mappings = {
+				i = {
+					["<esc>"] = actions.close,
+					["<c-j>"] = actions.move_selection_next,
+					["<c-k>"] = actions.move_selection_previous,
+				},
+			},
 			layout_config = {
 				horizontal = {
 					preview_width = 0.5,

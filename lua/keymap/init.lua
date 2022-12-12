@@ -37,8 +37,8 @@ local plug_map = {
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["n|L"] = map_cr("Lspsaga show_line_diagnostics"):with_noremap():with_silent(),
-	["n|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
-	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
+	["n|ga"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
+	["v|ga"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
@@ -93,6 +93,7 @@ local plug_map = {
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin vim-eft
+	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	-- Plugin Hop
 	["n|<leader>w"] = map_cu("HopWord"):with_noremap(),
@@ -137,6 +138,8 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
+	-- Plugin Legendary
+	-- ["n|<C-p>"] = map_cr("Legendary"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
