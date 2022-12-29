@@ -13,15 +13,15 @@ tools["nvim-telescope/telescope.nvim"] = {
 		{ "debugloop/telescope-undo.nvim", opt = true },
 	},
 }
-tools["ahmedkhalf/project.nvim"] = {
-	opt = true,
-	after = "telescope.nvim",
-	config = conf.project,
-}
+-- tools["ahmedkhalf/project.nvim"] = {
+-- 	opt = true,
+-- 	after = "telescope.nvim",
+-- 	config = conf.project,
+-- }
 tools["nvim-telescope/telescope-fzf-native.nvim"] = {
 	opt = true,
 	run = "make",
-	after = "project.nvim",
+	after = "telescope.nvim",
 }
 tools["nvim-telescope/telescope-frecency.nvim"] = {
 	opt = true,
@@ -57,15 +57,15 @@ tools["folke/which-key.nvim"] = {
 	opt = false,
 	config = conf.which_key,
 }
-tools["mrjones2014/legendary.nvim"] = {
-	opt = true,
-	cmd = "Legendary",
-	config = conf.legendary,
-	requires = {
-		{ "stevearc/dressing.nvim", opt = false, config = conf.dressing },
-		"kkharji/sqlite.lua",
-		"folke/which-key.nvim",
-	},
-}
+-- tools["mrjones2014/legendary.nvim"] = {
+-- 	opt = true,
+-- 	cmd = "Legendary",
+-- 	config = conf.legendary,
+-- 	requires = {
+-- 		{ "stevearc/dressing.nvim", opt = false, config = conf.dressing },
+-- 		"kkharji/sqlite.lua",
+-- 		"folke/which-key.nvim",
+-- 	},
+-- }
 
 return tools

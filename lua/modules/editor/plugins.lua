@@ -151,4 +151,11 @@ editor["ibhagwan/smartyank.nvim"] = {
 -- 	config = conf.imselect,
 -- }
 
+editor["kylechui/nvim-surround"] = {
+	tag = "*",
+	config = function()
+		require("nvim-surround").setup()
+	end,
+}
+
 return editor

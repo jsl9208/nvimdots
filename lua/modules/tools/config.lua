@@ -2,7 +2,7 @@ local config = {}
 
 function config.telescope()
 	vim.api.nvim_command([[packadd sqlite.lua]])
-	vim.api.nvim_command([[packadd project.nvim]])
+	-- vim.api.nvim_command([[packadd project.nvim]])
 	vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
 	vim.api.nvim_command([[packadd telescope-frecency.nvim]])
 	-- vim.api.nvim_command([[packadd telescope-zoxide]])
@@ -40,8 +40,8 @@ function config.telescope()
 			mappings = {
 				i = {
 					["<esc>"] = actions.close,
-					["<c-j>"] = actions.move_selection_next,
-					["<c-k>"] = actions.move_selection_previous,
+					-- ["<c-j>"] = actions.move_selection_next,
+					-- ["<c-k>"] = actions.move_selection_previous,
 				},
 			},
 			layout_config = {
@@ -102,7 +102,7 @@ function config.telescope()
 
 	require("telescope").load_extension("notify")
 	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("projects")
+	-- require("telescope").load_extension("projects")
 	-- require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("live_grep_args")
@@ -352,7 +352,7 @@ function config.legendary()
 			},
 			f = {
 				name = "Telescope commands",
-				p = "find: Project",
+				-- p = "find: Project",
 				w = "find: Word",
 				r = "find: File by frecency",
 				e = "find: File by history",
