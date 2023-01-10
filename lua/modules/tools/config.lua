@@ -40,8 +40,8 @@ function config.telescope()
 			mappings = {
 				i = {
 					["<esc>"] = actions.close,
-					-- ["<c-j>"] = actions.move_selection_next,
-					-- ["<c-k>"] = actions.move_selection_previous,
+					["<c-j>"] = actions.move_selection_next,
+					["<c-k>"] = actions.move_selection_previous,
 				},
 			},
 			layout_config = {
@@ -67,8 +67,8 @@ function config.telescope()
 				-- define mappings, e.g.
 				mappings = { -- extend mappings
 					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
-						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+						-- ["<C-k>"] = lga_actions.quote_prompt(),
+						-- ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 					},
 				},
 			},

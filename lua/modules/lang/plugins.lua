@@ -24,4 +24,5 @@ lang["iamcco/markdown-preview.nvim"] = {
 	run = "cd app && yarn install",
 }
 lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
+lang["jose-elias-alvarez/typescript.nvim"] = { opt = true, ft = "typescript", config = conf.typescript }
 return lang

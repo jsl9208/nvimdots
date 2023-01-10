@@ -30,8 +30,8 @@ local plug_map = {
 	["n|<leader>pi"] = map_cr("PackerInstall"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>pc"] = map_cr("PackerClean"):with_silent():with_noremap():with_nowait(),
 	-- Lsp mapp work when insertenter and lsp start
-	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	-- ["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
+	-- ["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	["n|go"] = map_cr("Lspsaga outline"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
@@ -88,7 +88,7 @@ local plug_map = {
 	["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	-- ["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
-    ["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
+	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
@@ -140,6 +140,9 @@ local plug_map = {
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
 	-- Plugin Legendary
 	-- ["n|<C-p>"] = map_cr("Legendary"):with_silent():with_noremap(),
+	-- Typescript
+	["n|<leader>li"] = map_cr("TypescriptAddMissingImports"):with_noremap():with_silent(),
+	["n|<leader>lo"] = map_cr("TypescriptOrganizeImports"):with_noremap():with_silent(),
 }
 
 bind.nvim_load_mapping(plug_map)
