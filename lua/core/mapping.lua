@@ -17,6 +17,7 @@ local def_map = {
 		:with_silent(),
 
 	-- ["n|<C-s>"] = map_cu("write"):with_noremap(),
+	["n|<C-S-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"):with_silent():with_noremap(),
 	["n|Y"] = map_cmd("y$"),
 	["n|D"] = map_cmd("d$"),
 	["n|n"] = map_cmd("nzzzv"):with_noremap(),
