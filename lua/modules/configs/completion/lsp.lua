@@ -39,7 +39,7 @@ return function()
 			"efm",
 			"gopls",
 			"pyright",
-			"sumneko_lua",
+			-- "sumneko_lua",
 		},
 	})
 
@@ -101,11 +101,11 @@ return function()
 			nvim_lsp.jsonls.setup(final_opts)
 		end,
 
-		sumneko_lua = function()
-			local _opts = require("completion.servers.sumneko_lua")
-			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-			nvim_lsp.sumneko_lua.setup(final_opts)
-		end,
+		-- sumneko_lua = function()
+		-- 	local _opts = require("completion.servers.sumneko_lua")
+		-- 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
+		-- 	nvim_lsp.sumneko_lua.setup(final_opts)
+		-- end,
 	})
 
 	if vim.fn.executable("html-languageserver") then
@@ -159,7 +159,7 @@ return function()
 		cpp = { formatter = clangfmt },
 		python = { formatter = black },
 		vue = { formatter = prettier },
-		typescript = { formatter = prettier, linter = eslint },
+		typescript = { formatter = prettier },
 		javascript = { formatter = prettier, linter = eslint },
 		typescriptreact = { formatter = prettier, linter = eslint },
 		javascriptreact = { formatter = prettier, linter = eslint },

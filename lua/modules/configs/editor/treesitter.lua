@@ -25,6 +25,7 @@ return function()
 			"typescript",
 			"vue",
 			"css",
+			"tsx",
 		},
 		highlight = {
 			enable = true,
@@ -76,6 +77,7 @@ return function()
 		},
 		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
+		indent = { enable = true },
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then

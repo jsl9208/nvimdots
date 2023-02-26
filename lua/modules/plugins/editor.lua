@@ -1,20 +1,20 @@
 local editor = {}
 
-editor["rainbowhxch/accelerated-jk.nvim"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("editor.accelerated-jk"),
-}
+-- editor["rainbowhxch/accelerated-jk.nvim"] = {
+-- 	lazy = true,
+-- 	event = "VeryLazy",
+-- 	config = require("editor.accelerated-jk"),
+-- }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = require("editor.auto-session"),
 }
-editor["max397574/better-escape.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("editor.better-escape"),
-}
+-- editor["max397574/better-escape.nvim"] = {
+-- 	lazy = true,
+-- 	event = "BufReadPost",
+-- 	config = require("editor.better-escape"),
+-- }
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
 	config = require("editor.bigfile"),

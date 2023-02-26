@@ -109,6 +109,7 @@ function autocmd.load_autocmds()
 				"c,cpp",
 				"nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
 			},
+			{ "FileType", "javascript,typescript,typescriptreact", "set shiftwidth=2" },
 		},
 		yank = {
 			{

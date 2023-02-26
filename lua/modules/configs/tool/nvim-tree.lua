@@ -41,6 +41,11 @@ return function()
 					col = 1,
 				},
 			},
+			mappings = {
+				list = {
+					{ key = "<C-e>", action = "" },
+				},
+			},
 		},
 		renderer = {
 			add_trailing = false,
@@ -121,10 +126,10 @@ return function()
 				global = false,
 			},
 			open_file = {
-				quit_on_open = false,
-				resize_window = false,
+				quit_on_open = true,
+				resize_window = true,
 				window_picker = {
-					enable = true,
+					enable = false,
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 					exclude = {
 						filetype = { "notify", "qf", "diff", "fugitive", "fugitiveblame" },
@@ -137,8 +142,8 @@ return function()
 			},
 		},
 		diagnostics = {
-			enable = false,
-			show_on_dirs = false,
+			enable = true,
+			show_on_dirs = true,
 			debounce_delay = 50,
 			icons = {
 				hint = icons.diagnostics.Hint_alt,

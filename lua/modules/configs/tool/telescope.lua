@@ -2,6 +2,7 @@ return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local lga_actions = require("telescope-live-grep-args.actions")
 
+	local actions = require("telescope.actions")
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
@@ -10,8 +11,15 @@ return function()
 			scroll_strategy = "limit",
 			results_title = false,
 			layout_strategy = "horizontal",
-			path_display = { "absolute" },
+			-- path_display = { "absolute" },
 			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
+			mappings = {
+				i = {
+					["<esc>"] = actions.close,
+					["<c-j>"] = actions.move_selection_next,
+					["<c-k>"] = actions.move_selection_previous,
+				},
+			},
 			layout_config = {
 				horizontal = {
 					preview_width = 0.5,
@@ -29,12 +37,12 @@ return function()
 			},
 		},
 		extensions = {
-			fzf = {
-				fuzzy = false,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
-			},
+			-- fzf = {
+			-- 	fuzzy = false,
+			-- 	override_generic_sorter = true,
+			-- 	override_file_sorter = true,
+			-- 	case_mode = "smart_case",
+			-- },
 			frecency = {
 				show_scores = true,
 				show_unindexed = true,
@@ -45,8 +53,8 @@ return function()
 				-- define mappings, e.g.
 				mappings = { -- extend mappings
 					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
-						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+						-- ["<C-k>"] = lga_actions.quote_prompt(),
+						-- ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 					},
 				},
 			},
@@ -59,8 +67,8 @@ return function()
 						-- telescope in it's `requirements` and loading this extension from there instead of
 						-- having the separate plugin definition as outlined above. See issue #6.
 						["<cr>"] = require("telescope-undo.actions").yank_additions,
-						["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-						["<C-cr>"] = require("telescope-undo.actions").restore,
+						["<C-cr>"] = require("telescope-undo.actions").yank_deletions,
+						["<S-cr>"] = require("telescope-undo.actions").restore,
 					},
 				},
 			},
@@ -69,8 +77,8 @@ return function()
 
 	require("telescope").load_extension("notify")
 	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("projects")
-	require("telescope").load_extension("zoxide")
+	-- require("telescope").load_extension("projects")
+	-- require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("live_grep_args")
 	require("telescope").load_extension("undo")

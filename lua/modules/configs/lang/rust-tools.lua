@@ -167,17 +167,24 @@ return function()
 		server = {
 			-- standalone file support
 			-- setting it to false may improve startup time
-			standalone = true,
+			standalone = false,
+			-- settings = {
+			-- 	["rust-analyzer"] = {
+			-- 		checkOnSave = {
+			-- 			command = "clippy",
+			-- 		},
+			-- 	},
+			-- },
 		}, -- rust-analyer options
 
 		-- debugging stuff
-		dap = {
-			adapter = {
-				type = "executable",
-				command = "lldb-vscode",
-				name = "rt_lldb",
-			},
-		},
+		-- dap = {
+		-- 	adapter = {
+		-- 		type = "executable",
+		-- 		command = "lldb-vscode",
+		-- 		name = "rt_lldb",
+		-- 	},
+		-- },
 	}
 
 	require("rust-tools").setup(opts)

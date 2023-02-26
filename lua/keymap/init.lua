@@ -71,10 +71,7 @@ local plug_map = {
 	["n|go"] = map_cr("Lspsaga outline"):with_noremap():with_silent():with_desc("lsp: Toggle outline"),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent():with_desc("lsp: Prev diagnostic"),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent():with_desc("lsp: Next diagnostic"),
-	["n|<leader>sl"] = map_cr("Lspsaga show_line_diagnostics")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Line diagnostic"),
+	["n|L"] = map_cr("Lspsaga show_line_diagnostics"):with_noremap():with_silent():with_desc("lsp: Line diagnostic"),
 	["n|<leader>sc"] = map_cr("Lspsaga show_cursor_diagnostics")
 		:with_noremap()
 		:with_silent()
@@ -187,7 +184,7 @@ local plug_map = {
 		:with_desc("lsp: Show quickfix list"),
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 	-- Plugin nvim-tree
-	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	["n|<C-e>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 	-- Plugin Telescope
@@ -233,12 +230,12 @@ local plug_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 	-- Plugin accelerate-jk
-	["n|j"] = map_callback(function()
-		return t("<Plug>(accelerated_jk_gj)")
-	end):with_expr(),
-	["n|k"] = map_callback(function()
-		return t("<Plug>(accelerated_jk_gk)")
-	end):with_expr(),
+	-- ["n|j"] = map_callback(function()
+	-- 	return t("<Plug>(accelerated_jk_gj)")
+	-- end):with_expr(),
+	-- ["n|k"] = map_callback(function()
+	-- 	return t("<Plug>(accelerated_jk_gk)")
+	-- end):with_expr(),
 	-- Plugin vim-eft
 	["n|;"] = map_callback(function()
 		return t("<Plug>(clever-f-repeat-forward)")
@@ -340,7 +337,7 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
-	["n|<C-p>"] = map_callback(command_panel):with_silent():with_noremap():with_desc("tool: Toggle command panel"),
+	-- ["n|<C-p>"] = map_callback(command_panel):with_silent():with_noremap():with_desc("tool: Toggle command panel"),
 	-- Plugin Tabout
 	["i|<A-l>"] = map_cmd("<Plug>(TaboutMulti)"):with_silent():with_noremap():with_desc("editi: Goto end of pair"),
 	["i|<A-h>"] = map_cmd("<Plug>(TaboutBackMulti)")
@@ -380,6 +377,16 @@ local plug_map = {
 		:with_silent()
 		:with_noremap()
 		:with_desc("editx: Toggle comment for block with selection"),
+
+	-- Custom mappings
+	["n|<c-p>"] = map_callback(function()
+			require("telescope").extensions.frecency.frecency()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: File by frecency"),
+	["n|<bs>"] = map_cmd("<c-6>"):with_noremap():with_silent(),
+	-- ["n|<c-0>"] = map_cmd("vi{:! prettier --parser html --stdin-filepath<CR>vi{>"):with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
